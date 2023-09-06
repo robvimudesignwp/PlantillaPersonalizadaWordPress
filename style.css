@@ -1,0 +1,475 @@
+/*
+ Theme Name:  Theme Gym Fitness
+ Theme URI:  
+ Author: Robert Villano Muñoz
+ Author URI: https://www.instagram.com/robvimudesign
+ Description: Tema WordPress diseñado a medida para gimnasios
+ Version:  1.0
+ License:  GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags: Gym, Fitness, Flexbox, Responsive Design, CSS Grid, Grid Layout
+ Text Domain: gymfitness
+ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Urbanist:wght@400;600;700;800&display=swap');
+
+:root{
+    /*==== Fonts ====*/
+    --font-content-text: 'Urbanist', sans-serif; 
+    --font-content-heading: 'Inter Tight', sans-serif;
+
+    /*==== Colors ====*/
+    --primary-color: #ff5b00;
+    --secondary-color: #2f2e2e;
+    --tertiary-color: #ebebeb;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+/**
+ * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /* 10px = 1rem */  
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: var(--font-content-text);
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 2;
+}
+
+/*============== Headings ================*/
+h1, h2, h3, h4{
+    font-family: var(--font-content-heading);
+    line-height: 1.2;
+    margin: 0 0 5rem 0;
+}
+
+h1{
+    font-size: 6rem;
+}
+
+h2{
+    font-size: 4.8rem;
+}
+
+h3{
+    font-size: 3.6rem;
+}
+
+h4{
+    font-size: 2.4rem;
+}
+
+/*================ Globals ==================*/
+p{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+hr{
+    border: 1px solid var(--tertiary-color);
+}
+
+.featured_image{
+    margin-bottom: 3rem;
+}
+
+.container{
+    margin: 0 auto;
+    width: min(95%, 120rem);
+}
+
+.container{
+    text-align: center;
+}
+
+.content-center{
+    width: min(95%, 80rem);
+}
+
+/*============= Utilities ===============*/
+.text-center{
+    text-align: center;
+}
+
+.text-primary{
+    color: var(--primary-color);
+}
+
+.text-white{
+    color: var(--white-color);
+}
+
+.section-page{
+    padding: 5rem 0;
+}
+
+/*============== Header ==============*/
+.site-header{
+    background-color: var(--secondary-color);
+    padding: 2rem 0;
+}
+
+.navbar-navigation{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px){
+    .navbar-navigation{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.menu_main{
+    display: none;
+}
+
+@media only screen and (min-width: 768px){
+    .menu_main{
+      display: block;
+    }
+    .menu_main .menu{
+      display: flex;
+    }
+}
+
+.menu_main a{
+    display: block;
+    color: var(--white-color);
+    font-family: var(--font-content-heading);
+    font-size: 2.2rem;
+    padding: .5rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/** https://gist.github.com/codigoconjuan/9cde54f7d1300bd95f108d78aef2112e 
+ */
+
+@media only screen and (min-width: 768px){
+    .menu_main a{
+        position: relative;
+        z-index: 1;
+    }
+
+    .menu_main .current_page_item{
+        border-bottom: 3px solid var(--primary-color);
+    }
+
+    .menu_main a::before,
+    .menu_main a::after{
+        background-color: var(--primary-color);
+        content: '';
+        display: block;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform .6s;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .menu_main a::before{
+        transform-origin: left;
+        top: 0;
+    }
+
+    .menu_main a::after{
+        transform-origin: right;
+        top: 50%;
+    }
+
+    .menu_main a:hover::before{
+        transform: scaleX(1);
+    }
+
+    .menu_main a:hover::after{
+        transform: scaleX(1);
+    }
+}
+
+/*============== Footer ===============*/
+.content-footer{
+    padding: 4rem 0;
+}
+
+@media only screen and (min-width: 768px){
+    .content-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.site-footer .menu_main a{
+    color: var(--black-color);
+    font-size: 2.4rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.site-footer .menu_main a::before,
+.site-footer .menu_main a::after{
+    display: none;
+}
+
+.site-footer .current_page_item{
+    border: none;
+}
+
+.copyright{
+    font-family: var(--font-content-text);
+    font-size: 2.4em;
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px){
+    .copyright{
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}
+
+/*============== Cards ===============*/
+.list-classes{
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+@media only screen and (min-width: 768px){
+    .list-classes{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card{
+    background-image: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, .7));
+    overflow: hidden;
+    position: relative;
+}
+
+.card .post-categories{
+    display: flex;
+    gap: 2rem;
+    left: 2rem;
+    position: absolute;
+    top: 2rem;
+}
+
+.card .post-categories li{
+    background-color: var(--primary-color);
+    padding: .5rem 1rem;
+}
+
+.card .post-categories a{
+    color: var(--white-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card:hover img{
+    transform: scale(1.3);
+}
+
+.card img{
+    display: block; 
+    height: 40rem;
+    object-fit: cover;
+    position: relative;
+    transition: all .8s ease;
+    z-index: -1;
+}
+
+.card .content{
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    position: absolute;
+}
+
+.card .content h3{
+    color: var(--white-color);
+    margin: 0;
+}
+
+.card .content p,
+.card .content .meta-information a{
+    color: var(--white-color);
+}
+
+.card .meta-information{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.card .meta-information span{
+    color: var(--primary-color);
+}
+
+
+/*============== SideBar Post Types ===============*/
+@media only screen and (min-width: 768px){
+    .with-sidebar{
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.information-class{
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.classes-sidebar{
+
+}
+
+.classes-sidebar li{
+    align-items: center;
+    border-bottom: 1px solid var(--tertiary-color);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem 0;
+}
+
+.classes-sidebar li:last-of-type{
+    border: none;
+}
+
+.classes-sidebar .content-class h3{
+    font-size: 2.4rem;
+    margin: 0;
+}
+
+.classes-sidebar .content-class a{
+    color: var(--primary-color);
+}
+
+.classes-sidebar .content-class p{
+    font-size: 1.2rem;
+}
+
+/*============== Gallery Images ===============*/
+.gallery-images{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 300px);
+}
+
+@media only screen and (min-width: 768px){
+   .gallery-images{
+     grid-template-columns: repeat(4, 1fr);
+     grid-template-rows: auto;
+}
+}
+
+.gallery-images li{
+
+}
+
+.gallery-images li:nth-child(4){
+     grid-column: 2 / 3;
+     grid-row: 2 / 4;
+} 
+
+.gallery-images li:nth-child(6){
+     grid-column: 1 / 2;
+     grid-row: 4 / 6;
+} 
+
+@media only screen and (min-width: 768px){
+   .gallery-images li:nth-child(4){
+     grid-column: 4 / 5;
+     grid-row: 1 / 3;
+} 
+   .gallery-images li:nth-child(6){
+     grid-column: 2 / 3;
+     grid-row: 2 / 4;
+} 
+}
+
+.gallery-images li:nth-child(4) img,
+.gallery-images li:nth-child(6) img{
+    height: 620px;
+} 
+
+.gallery-images img{
+    height: 300px;
+    object-fit: cover;
+}
+
+/*============== Meta Info Blog ===============*/
+ .content-information{
+    background-color: var(--tertiary-color);
+    padding: 2rem;
+}
+
+@media only screen and (min-width: 992px){
+    .content-information{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+ }
+}
+
+.content-information p,
+.content-information a{
+    color: var(--black-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.content-information{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.content-information span{
+    color: var(--primary-color);
+}
+
+.category-info{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+}
+
+
+
+
+
