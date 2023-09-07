@@ -470,6 +470,7 @@ hr{
 }
 
 /*============== Rewrite Contact Form Styles ===============*/
+
 .wpcf7-form label{
     font-weight: 700;
 }
@@ -485,7 +486,9 @@ hr{
     color: var(--white-color);
     font-family: var(--font-content-heading);
     font-size: 2rem;
+    margin-left: 60px;
     padding: 1.2rem;
+    width: 30%;
 }
 
 .wpcf7-form .wpcf7-submit:hover{
@@ -493,10 +496,27 @@ hr{
 }
 
 .wpcf7-form  .wpcf7-not-valid-tip{
-    background-color: var(--primary-color);
+    background-color: #de353e;
     color: var(--white-color);
+    display: block;
+    font-size: 1.4rem;
+    margin: .5rem 0;
+    margin-left: 60px;
+    padding: .5rem 0;
     width: 70%;
 }
+
+.wpcf7-form .wpcf7-spinner{
+    background-color: var(--primary-color);
+    display: block;
+    margin: 2rem auto 0 auto;
+    opacity: 1;
+}
+
+.location{
+    margin-bottom: 5rem;
+}
+
 
 
 

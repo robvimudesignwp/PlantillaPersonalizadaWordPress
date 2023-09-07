@@ -10,7 +10,7 @@ while( have_posts() ): the_post();
      if (has_post_thumbnail()){
      	the_post_thumbnail('full', array('class' => 'featured_image'));
      }
- 
+
   the_content();
 
 endwhile; 

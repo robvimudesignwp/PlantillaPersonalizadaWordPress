@@ -9,6 +9,9 @@
  * @link https://codex.wordpress.org/Title_Tag
  * @link https://codex.wordpress.org/Widgetizing_Themes
  * @link https://necolas.github.io/normalize.css/8.0.1/normalize.css
+ * @link https://developer.wordpress.org/reference/functions/add_shortcode/
+ * @link https://developer.wordpress.org/reference/functions/do_shortcode/
+ * @link https://www.mailerlite.com/es/ 
  * 
  */ 
 
@@ -62,3 +65,25 @@ function gymfitness_widgets(){
    ));
 }
 add_action('widgets_init', 'gymfitness_widgets');
+
+// Agregamos un shortcode
+
+if(!function_exists('gymfitness_location_shorcode')){
+   function gymfitness_location_shorcode(){
+      ?>
+      <div class="location">
+         <?php 
+         //verificamos que se agregue el mapa solamente a la página de contacto
+           if(is_page('contact')){
+            the_field('location');
+            } 
+           ?>
+      </div>
+      <?php
+      echo  '<h2 class="text-center text-primary">' . __( "Contact Form", 'gymfitness' ) . '</h2>';
+      // Renderizamos el formulario de contacto
+      echo do_shortcode('[contact-form-7 id="df21bf5" title="Contact form 1"]');
+   }
+}
+
+add_shortcode('gymfitness_location', 'gymfitness_location_shorcode' );
