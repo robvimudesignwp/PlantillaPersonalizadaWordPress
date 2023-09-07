@@ -469,6 +469,35 @@ hr{
     justify-content: center;
 }
 
+/*============== Rewrite Contact Form Styles ===============*/
+.wpcf7-form label{
+    font-weight: 700;
+}
+
+.wpcf7-form .wpcf7-form-control{
+    border: 1px solid var(--tertiary-color);
+    padding: 1rem;
+    width: 70%;
+}
+
+.wpcf7-form .wpcf7-submit{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-family: var(--font-content-heading);
+    font-size: 2rem;
+    padding: 1.2rem;
+}
+
+.wpcf7-form .wpcf7-submit:hover{
+    cursor: pointer;
+}
+
+.wpcf7-form  .wpcf7-not-valid-tip{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    width: 70%;
+}
+
 
 
 
