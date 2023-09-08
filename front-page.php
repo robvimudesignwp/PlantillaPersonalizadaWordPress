@@ -65,5 +65,15 @@
  	   gymfitness_instructors(4); 
  	?>
 </section>
+<section class="testimonials">
+	<h2 class="text-center text-primary"><?php echo  esc_html_e( "Testimonials", 'gymfitness' ); ?></h2>
+	<div class="container-testimonials swiper">
+		<?php 
+           // usamos la función para mostrar algunos testimonios del fichero wp-gymfitness-queries.php
+ 	       gymfitness_testimonials(4);
+ 	    ?>
+	</div>
+	
+</section>
 
 <?php get_footer(); ?>

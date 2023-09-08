@@ -289,14 +289,16 @@ hr{
 }
 
 /*============== Cards ===============*/
-.list-classes{
+.list-classes,
+.list-instructors{
     display: grid;
     gap: 2rem;
     margin-top: 4rem;
 }
 
 @media only screen and (min-width: 768px){
-    .list-classes{
+    .list-classes,
+    .list-instructors{
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -684,8 +686,65 @@ hr{
     margin-right: 0;
 }
 
+/*============== Testimonials Styles ===============*/
+.testimonials{
+    background: linear-gradient(
+       rgb(239 239 239 / .55),
+       rgb(243 243 243 / .75)
+    ), url(img/image.jpg);
+    background-size: cover;
+    background-position: center center;
+    padding: 12rem 0;
+}
 
+.container-testimonials{
+    margin: 0 auto;
+    width: min(95% , 80rem);
+}
 
+.testimonial-content{
+    color: var(--black-color);
+}
+
+.testimonial-content blockquote{
+    padding-left: 12rem;
+    position: relative;
+}
+
+.testimonial-content blockquote::before{
+    background-image: url('images/quote.svg');
+    background-repeat: no-repeat;
+    content:  '';
+    height: 9rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 10rem;
+}
+
+.testimonial-carousel{
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 768px){
+    .testimonial-carousel{
+        justify-content: flex-end;
+    }
+}
+
+.testimonial-carousel img{
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem;
+}
+
+.testimonial-carousel p{
+    color: var(--primary-color);
+    font-weight: 700;
+}
 
 
 

@@ -7,6 +7,7 @@
  * @link https://developer.wordpress.org/reference/classes/wp_query/
  */
 
+//Loop para mostrar el listado de clases
 function gymfitness_list_classes($amount = -1){ ?>
 	<ul class="list-classes">
 
@@ -41,9 +42,10 @@ function gymfitness_list_classes($amount = -1){ ?>
 <?php 
 }
 
+//Loop para mostrar los instructores 
 if(!function_exists('gymfitness_instructors')){
   function gymfitness_instructors($amount = -1){ ?>
-      <ul class="list-classes instructors">
+      <ul class="list-instructors instructors">
 
           <?php 
                   $args = array(
@@ -73,6 +75,39 @@ if(!function_exists('gymfitness_instructors')){
                              ?>
                           </div>
                         </div>
+                    </li>
+
+          <?php 
+              endwhile; 
+                wp_reset_postdata();
+              ?>
+        </ul>
+    <?php
+  }
+}
+
+//Loop para mostrar los testimoniales
+if(!function_exists('gymfitness_testimonials')){
+  function gymfitness_testimonials($amount = -1){ ?>
+      <ul class="list-testimonials swiper-wrapper">
+
+          <?php 
+                  $args = array(
+                     'post_type'  =>  'testimonials',
+                     'posts_per_page' => $amount
+                  );
+                  $testimonials = new WP_Query($args);
+                  while( $testimonials->have_posts()): $testimonials->the_post(); 
+               ?>
+
+                    <li class="testimonial-content text-center swiper-slide">
+                        <blockquote>
+                          <?php the_content(); ?>
+                        </blockquote>
+                        <footer class="testimonial-carousel">
+                          <?php the_post_thumbnail('thumbnail'); ?>
+                          <p><?php the_title(); ?></p>
+                        </footer>
                     </li>
 
           <?php 

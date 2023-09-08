@@ -12,6 +12,7 @@
  * @link https://developer.wordpress.org/reference/functions/add_shortcode/
  * @link https://developer.wordpress.org/reference/functions/do_shortcode/
  * @link https://www.mailerlite.com/es/ 
+ * @link https://www.jsdelivr.com/package/npm/swiper
  * 
  */ 
 
@@ -45,10 +46,13 @@ function gymfitness_scripts_styles(){
    //Listado de archivos CSS
    wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.min.css', array(), '8.0.1');
    wp_enqueue_style('lightboxcss', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.4');
+   wp_enqueue_style('swipercss', 'https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.css', array(), '10.2.0');
    wp_enqueue_style('style', get_stylesheet_uri(), array('normalize'), '1.0');
 
    //Listado de archivos JS
    wp_enqueue_script('lightboxjs', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.4', true);
+   wp_enqueue_script('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.js', array(), '10.2.0');
+   wp_enqueue_script('custom_js_scripts', get_template_directory_uri() . '/js/custom_scripts.js', array('swiperjs'), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'gymfitness_scripts_styles');
