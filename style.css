@@ -616,7 +616,73 @@ hr{
     }
 }
 
-/*============== Home Button ===============*/
+/*============== Instructors Style ===============*/
+.trainer{
+    border-bottom: 1px solid var(--tertiary-color);
+    margin: 2rem 0;
+}
+
+.trainer:last-of-type{
+    border: none;
+}
+
+@media only screen and (min-width: 992px){
+    .trainer{
+        position: relative;
+    }
+}
+
+.trainer img{
+    height: 40rem;
+    object-fit: cover;
+}
+
+.trainer h3{
+    margin-bottom: 1.5rem;
+}
+
+.specialty{
+    margin-top: 2rem;
+}
+
+.trainer .content{
+    padding: 2.4rem;
+}
+
+@media only screen and (min-width: 992px){
+    .trainer .content{
+        background-color: rgb(0 0 0 / .55);
+        color: var(--white-color);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .trainer:hover .content{
+        opacity: 1;
+        transition: all .8s ease;
+        transition-delay: all .3s ease-out;
+    }
+}
+
+.trainer .tag{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-family: var(--font-content-heading);
+    font-size: 1.7rem;
+    margin-right: 2rem;
+    padding: .5rem 2rem;
+    text-transform: uppercase;
+}
+
+.trainer .tag:last-of-type{
+    margin-right: 0;
+}
 
 
 

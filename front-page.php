@@ -57,5 +57,13 @@
  	</div>
 
 </main>
+<section class="container section-page">
+	<h2 class="text-center text-primary"><?php echo  esc_html_e( "Our Instructors", 'gymfitness' ); ?></h2>
+
+	<?php 
+       // usamos la función para mostrar algunos instructores del fichero wp-gymfitness-queries.php
+ 	   gymfitness_instructors(4); 
+ 	?>
+</section>
 
 <?php get_footer(); ?>

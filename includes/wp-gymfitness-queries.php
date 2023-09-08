@@ -40,3 +40,46 @@ function gymfitness_list_classes($amount = -1){ ?>
 	</ul>
 <?php 
 }
+
+if(!function_exists('gymfitness_instructors')){
+  function gymfitness_instructors($amount = -1){ ?>
+      <ul class="list-classes instructors">
+
+          <?php 
+                  $args = array(
+                     'post_type'  =>  'instructors',
+                     'posts_per_page' => $amount
+                  );
+                  $instructors = new WP_Query($args);
+                  while( $instructors->have_posts()): $instructors->the_post(); 
+               ?>
+
+                    <li class="trainer">
+                        <?php the_post_thumbnail('large'); ?>
+                        <div class="content text-center">
+                          <h3><?php the_title(); ?></h3>
+                          <?php the_content(); ?>
+                          <div class="specialty">
+                            <?php 
+                                 $specialty = get_field('specialty');
+                                 
+                                 foreach ($specialty as $e) {?>
+                                  <span class="tag">
+                                    <?php echo esc_html($e); ?>
+                                  </span>
+                                   
+                                   <?php
+                                 }
+                             ?>
+                          </div>
+                        </div>
+                    </li>
+
+          <?php 
+              endwhile; 
+                wp_reset_postdata();
+              ?>
+        </ul>
+    <?php
+  }
+}
