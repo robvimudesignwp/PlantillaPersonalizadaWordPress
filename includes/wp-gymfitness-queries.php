@@ -7,14 +7,13 @@
  * @link https://developer.wordpress.org/reference/classes/wp_query/
  */
 
-function gymfitness_list_classes(){ ?>
+function gymfitness_list_classes($amount = -1){ ?>
 	<ul class="list-classes">
-      
-      <?php get_template_part('template-parts/pages'); ?>
 
 		<?php 
             $args = array(
-               'post_type'  =>  'gymfitness_classes'
+               'post_type'  =>  'gymfitness_classes',
+               'posts_per_page' => $amount
             );
             $classes = new WP_Query($args);
             while( $classes->have_posts()): $classes->the_post(); 

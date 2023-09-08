@@ -16,7 +16,7 @@
  */ 
 
 /* Consultas reutilizables */
-//require get_template_directory() . '/includes/wp-gymfitness-queries.php';
+require get_template_directory() . '/includes/wp-gymfitness-queries.php';
 require get_template_directory(). '/includes/widgets.php';
 
 /* Agregamos funcionalidad para el admin de WordPress */

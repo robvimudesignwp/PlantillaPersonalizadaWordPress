@@ -1,3 +1,12 @@
+<?php 
+/**
+ * @link https://developer.wordpress.org/reference/functions/language_attributes/
+ * @link https://developer.wordpress.org/reference/functions/wp_head/
+ * @link https://developer.wordpress.org/reference/functions/site_url/
+ * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
+ * @link https://developer.wordpress.org/reference/functions/get_template_directory_uri/
+ */ 
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> >
 <head>
@@ -9,7 +18,9 @@
 	<header class="site-header">
 		<div class="container nabvar-navigation">
 			<div class="logo">
-				<img src="<?php  echo get_template_directory_uri(); ?>/images/logo.svg" alt="logotipo">
+				<a href="<?php echo site_url('/'); ?>"></a>
+				   <img src="<?php  echo get_template_directory_uri(); ?>/images/logo.svg" alt="logotipo">
+				</a>
 			</div>
 			<nav>
 				<!-- Menú Navegación Aqui --> 

@@ -112,6 +112,35 @@ hr{
     width: min(95%, 80rem);
 }
 
+.container-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*============= Buttons ===============*/
+.btn{
+    background-color: var(--white-color);
+    color: var(--black-color);
+    display: block;
+    flex: 1;
+    font-weight: 700;
+    margin: 1rem 0;
+    padding: 1rem 3rem;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px){
+    .btn{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.btn-primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
 /*============= Utilities ===============*/
 .text-center{
     text-align: center;
@@ -486,7 +515,7 @@ hr{
     color: var(--white-color);
     font-family: var(--font-content-heading);
     font-size: 2rem;
-    margin-left: 60px;
+    margin: 0 auto;
     padding: 1.2rem;
     width: 30%;
 }
@@ -501,7 +530,7 @@ hr{
     display: block;
     font-size: 1.4rem;
     margin: .5rem 0;
-    margin-left: 60px;
+    margin: 0 auto;
     padding: .5rem 0;
     width: 70%;
 }
@@ -516,6 +545,80 @@ hr{
 .location{
     margin-bottom: 5rem;
 }
+
+/*============== Home Welcome Styles ===============*/
+.welcome-section p{
+    margin: 0 auto;
+    max-width: 80rem;
+}
+
+.section-area{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 480px){
+    .section-area{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .section-area{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.section-area-fields{
+    align-items: center;
+    display: flex;
+    height: 25rem;
+    justify-content: center;
+    position: relative;
+}
+
+.section-area-fields p{
+    color: var(--white-color);
+    font-weight: 700;
+    position: absolute;
+    z-index: 100;
+}
+
+@media only screen and (min-width: 768px){
+    .section-area-fields p{
+        opacity: 0;
+    }
+    .section-area-fields:hover p{
+        opacity: 1;
+        transition: all .8s ease;
+    }
+}
+
+.section-area-fields::after{
+    background-image: linear-gradient(rgb(0 0 0 / .55), rgb(0 0 0 / .55));
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.section-area-fields img{
+    height: 25rem;
+    object-fit: cover;
+    width: 50rem;
+}
+
+@media only screen and (min-width: 768px){
+    .section-area-fields,
+    .section-area-fields img{
+        height: 30rem;
+    }
+}
+
+/*============== Home Button ===============*/
+
+
 
 
 
