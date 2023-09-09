@@ -912,6 +912,27 @@ body.home .site-header{
     font-weight: 700;
 }
 
+/*============== Pagination Blog Styles ===============*/
+.pagination .screen-reader-text{
+    visibility: hidden;
+}
 
+.nav-links{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+}
+
+.nav-links a{
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: .5rem;
+}
+
+.nav-links .current{
+    font-size: 1.4rem;
+    padding: .5rem;
+}
 
 
