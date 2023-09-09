@@ -13,6 +13,9 @@
  * @link https://developer.wordpress.org/reference/functions/do_shortcode/
  * @link https://www.mailerlite.com/es/ 
  * @link https://www.jsdelivr.com/package/npm/swiper
+ * @link https://developer.wordpress.org/reference/functions/wp_get_attachment_image_src/
+ * @link https://developer.wordpress.org/reference/functions/wp_register_style/
+ * @link https://developer.wordpress.org/reference/functions/wp_add_inline_style/
  * 
  */ 
 
@@ -52,7 +55,8 @@ function gymfitness_scripts_styles(){
    //Listado de archivos JS
    wp_enqueue_script('lightboxjs', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.4', true);
    wp_enqueue_script('swiperjs', 'https://cdn.jsdelivr.net/npm/swiper@10.2.0/swiper-bundle.min.js', array(), '10.2.0');
-   wp_enqueue_script('custom_js_scripts', get_template_directory_uri() . '/js/custom_scripts.js', array('swiperjs'), '1.0', true);
+   wp_enqueue_script('animejs', get_template_directory_uri() . '/js/anime.min.js', array(), '2.0.2', true);
+   wp_enqueue_script('custom_js_scripts', get_template_directory_uri() . '/js/custom_scripts.js', array('swiperjs', 'animejs'), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'gymfitness_scripts_styles');
@@ -91,3 +95,34 @@ if(!function_exists('gymfitness_location_shorcode')){
 }
 
 add_shortcode('gymfitness_location', 'gymfitness_location_shorcode' );
+
+// Agregamos imágenes destacadas de forma dinámica al header con estilos CSS
+if(!function_exists('gymfitness_featured_image')){
+   function gymfitness_featured_image(){
+
+      //Obtener el ID de la página principal
+      $front_page_ID = get_option('page_on_front');
+
+      //Obtener la imágen de la página principal
+       $image_ID = get_field('hero_image', $front_page_ID);
+
+      //Obtener la url de la imágen
+       $image_src = wp_get_attachment_image_src($image_ID, 'full')[0];
+
+      //Crear estilos CSS
+        wp_register_style('custom_styles', false);
+        wp_enqueue_style('custom_styles');
+
+        $featured_image_style = "
+           body.home .site-header{
+                background-image: linear-gradient(rgb(0 0 0 / .65), rgb(0 0 0 / .65)), url($image_src);
+            }
+        ";
+
+      //Insertar estilos CSS
+        wp_add_inline_style('custom_styles', $featured_image_style);
+
+   }
+}
+
+add_action('init', 'gymfitness_featured_image');

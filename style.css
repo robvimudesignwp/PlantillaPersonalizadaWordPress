@@ -159,6 +159,88 @@ hr{
 }
 
 /*============== Header ==============*/
+body.home .site-header{
+    background-size: cover;
+    background-position: center center;
+    height: auto;
+    min-height: 70rem;
+    padding-top: 2rem;
+}
+
+@media only screen and (min-width: 768px){
+    body.home .site-header{
+        height: 100vh;
+        max-height: 90rem;
+    }
+}
+
+.tagline{
+    color: var(--white-color);
+    margin-top: 5rem;
+}
+
+@media only screen and (min-width: 768px){
+    .tagline{
+        margin-top: 15rem;
+    }
+}
+
+.tagline p{
+     font-size: 2rem;
+}
+
+@media only screen and (min-width: 992px){
+    .fixed-top{
+        background-color: var(--secondary-color);
+        height: 10rem;
+        left: 0;
+        padding: 1rem 5rem;
+        position: fixed;
+        transition: background-color .6s ease-in-out;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .fixed-top .brand{
+        width: 12rem;
+    }
+}
+
+.menu-burger:hover{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px){
+    .menu-burger{
+        display: none;
+    }
+}
+
+.container-menu{
+    max-height: 0;
+    opacity: 0;
+    transition-delay: 100ms, 300ms;
+    transition-property: opacity, max-height;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+
+@media only screen and (min-width: 768px){
+    .container-menu{
+        all: unset;
+    }
+}
+
+.show-menu{
+    max-height: 35rem;
+    opacity: 1;
+    transition-delay: 100ms, 300ms;
+    transition-property: max-height, opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+
 .site-header{
     background-color: var(--secondary-color);
     padding: 2rem 0;
@@ -692,9 +774,10 @@ hr{
        rgb(239 239 239 / .55),
        rgb(243 243 243 / .75)
     ), url(img/image.jpg);
-    background-size: cover;
+    /*background-size: cover;*/
     background-position: center center;
-    padding: 12rem 0;
+    height: 80%;
+    padding: 9rem 0;
 }
 
 .container-testimonials{
@@ -746,6 +829,16 @@ hr{
     font-weight: 700;
 }
 
+/*============== Hero Text Styles ===============*/
+.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
 
 
 

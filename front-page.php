@@ -73,7 +73,26 @@
  	       gymfitness_testimonials(4);
  	    ?>
 	</div>
-	
+</section>
+<section class="container section-page">
+	<h2 class="text-center text-primary"><?php echo  esc_html_e( "Our Blog", 'gymfitness' ); ?></h2>
+	<ul class="list-classes">
+		<?php 
+            $args = array(
+                 'post_type' => 'post',
+                 'posts_per_page' => 4
+            );
+
+            $blog = new WP_Query($args);
+            while($blog->have_posts()){
+            	$blog->the_post();
+            	get_template_part('template-parts/blog');
+            }
+
+            wp_reset_postdata();
+		?>
+
+	</ul>
 </section>
 
 <?php get_footer(); ?>
